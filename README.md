@@ -15,8 +15,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running end-to-end tests
-
-Run `ng test` to execute the tests via [Cypress](https://docs.cypress.io/guides/overview/why-cypress).
+First, make sure you started the project running with `npm run start` then run `npm run test` to execute the tests via [Cypress](https://docs.cypress.io/guides/overview/why-cypress).
 
 
 ## Further help
