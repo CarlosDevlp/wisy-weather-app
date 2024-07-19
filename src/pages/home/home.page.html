@@ -1,8 +1,14 @@
 <section class="p-3">
-    <h1 class="text-center w-100">Welcome to Wizy Weather App!</h1>
-    <h2 class="text-center w-100">Check available weather charts now!</h2>
-    <div class="d-flex flex-column">
-        <button type="button" class="btn btn-primary btn-lg m-2"  [routerLink]="'/weather/LWX'">District of Columbia Forecast</button>
-        <button type="button" class="btn btn-secondary btn-lg m-2" [routerLink]="'/weather/TOP'" >Kansas Forecast</button>
+    <h1 class="text-center w-100" cy-name="title">Welcome to Wizy Weather App!</h1>
+    <h2 class="text-center w-100" cy-name="subtitle">Check available weather charts now!</h2>
+    <div class="d-flex flex-column" cy-name="weather-forecasting-options">
+        <button type="button" 
+                class="btn btn-primary btn-lg m-2"  
+                cy-name="btn-lwx-option" 
+                [routerLink]="'/weather/LWX'">District of Columbia Forecast</button>
+        <button type="button" 
+                class="btn btn-secondary btn-lg m-2" 
+                cy-name="btn-top-option" 
+                [routerLink]="'/weather/TOP'" >Kansas Forecast</button>
     </div>
 </section>

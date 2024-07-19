@@ -1,15 +1,15 @@
-<div class="card">
+<div class="card" cy-name="weather-forecast-details-card-container">
     <div class="card-header">
         Details
     </div>
     <img [src]="weather.icon" class="card-img-top" [alt]="weather.icon" width="200" height="200">
     <div class="card-body">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Date: <strong>{{weather.name}}</strong>  - From: {{weather.startTime | date: 'short' }} To: {{weather.endTime | date: 'short' }}</li>
-            <li class="list-group-item">Forecast: {{weather.detailedForecast}}</li>
-            <li class="list-group-item">Temperature: {{ weather.temperature }} °F</li>
-            <li class="list-group-item">Wind Direction: {{ weather.windDirection }}</li>
-            <li class="list-group-item">Wind Speed: {{ weather.windSpeed }}</li>
+            <li cy-name="card-date" class="list-group-item">Date: <strong> {{weather.name}}</strong>  - From: {{weather.startTime | date: 'short' }} To: {{weather.endTime | date: 'short' }}</li>
+            <li cy-name="card-forecast" class="list-group-item">Forecast: {{weather.detailedForecast}}</li>
+            <li cy-name="card-temperature" class="list-group-item">Temperature: {{ weather.temperature }} °F</li>
+            <li cy-name="card-wind-direction" class="list-group-item">Wind Direction: {{ weather.windDirection }}</li>
+            <li cy-name="card-wind-speed" class="list-group-item">Wind Speed: {{ weather.windSpeed }}</li>
         </ul>
     </div>
 </div>

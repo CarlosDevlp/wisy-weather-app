@@ -1,9 +1,10 @@
 <section class="p-3">
-    <h2 class="text-center w-100">{{ title }} Chart</h2>
+    <h2 class="text-center w-100" cy-name="title">{{ title }} Chart</h2>
     
     <ng-container *ngIf="weatherData$ | async as weatherData; else showLoading">
         <div class="d-flex w-100 justify-content-center">
             <app-weather-chart 
+                    cy-name="weather-chart"
                     label="Temperature (°F)" 
                     [color]="chartLinesColor"
                     [weatherData]="weatherData" 
@@ -17,7 +18,9 @@
     
 
     <ng-template #showLoading>
-        <app-loading [label]="'Loading datasets'"></app-loading>   
+        <app-loading 
+            cy-name="loading-spinner"
+            [label]="'Loading datasets'"></app-loading>   
     </ng-template>
     
 </section>

@@ -22,6 +22,7 @@ export class WeatherChartComponent {
   ngAfterViewInit(): void {
     this.extractLabelsAndDataset();
     this.setUpChart();
+    this.onTooltipClick.emit(this.weatherData[0]);
   }
 
   extractLabelsAndDataset() {
@@ -54,7 +55,7 @@ export class WeatherChartComponent {
                 const index = context.dataIndex;
                 const label = context.dataset.label;
                 const value = context.dataset.data[index];
-                return `${label}: ${value} °F`; // Customize tooltip content
+                return `${label}: ${value} °F`; 
               },
               afterBody: (context) => {
                 const lines = [];
@@ -65,12 +66,12 @@ export class WeatherChartComponent {
                 this.selectedIndex = index;
                 console.log('clicked: ', index);
                 //lines.push(`Forecast: ${shortForecast}`);
-                return lines; // Customize tooltip content
+                return lines; 
               },
               footer: (context) => {
                 const index = context[0].dataIndex;
                 const {shortForecast} = this.weatherData[index];
-                return `${shortForecast}`; // Customize tooltip content
+                return `${shortForecast}`; 
               },
 
               afterFooter: (context) => {
