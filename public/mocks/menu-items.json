@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Home",
+        "link": "/"
+    },
+    {
+        "title": "Weather in Kansas",
+        "link": "/weather/LWX"
+    },
+    {
+        "title": "Weather in Columbia",
+        "link": "/weather/TOP"
+    }
+]

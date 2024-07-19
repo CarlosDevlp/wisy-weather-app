@@ -1,0 +1,19 @@
+<section class="p-3">
+    <h2 class="text-center w-100">{{ title }} Chart</h2>
+    
+    <app-loading *ngIf="isLoading ;else showContent" [label]="'Loading datasets'"></app-loading>
+    <ng-template #showContent>
+        <div class="d-flex w-100 justify-content-center">
+            <app-weather-chart 
+                    label="Temperature (°F)" 
+                    [color]="chartLinesColor"
+                    [weatherData]="weatherData" 
+                    (onTooltipClick)="showDetails($event)"></app-weather-chart>
+        </div>    
+        
+        <div *ngIf="selectedWeather">
+            <app-weather-forecast-details-card [weather]="selectedWeather"></app-weather-forecast-details-card>
+        </div>
+    </ng-template>
+    
+</section>
