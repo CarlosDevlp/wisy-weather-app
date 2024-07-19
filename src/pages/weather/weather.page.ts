@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { WeatherService } from '../../core/services/weather.service';
 import { ContentService } from '../../core/services/content.service';
 import { Weather } from '../../core/models/weather.model';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-weather',
@@ -13,7 +14,8 @@ export class WeatherPage {
   id: string = 'x';
   isLoading = false;
   title = '';
-  weatherData: Weather[] = [];
+  //weatherData: Weather[] = [];
+  weatherData$: Observable<Weather[]> | undefined;
   selectedWeather: Weather | undefined;
   chartLinesColor = '#e6004a';
   constructor(
@@ -28,24 +30,19 @@ export class WeatherPage {
       this.chartLinesColor = '#736ca0';
     } 
     this.getTitle();
-    this.getWeatherDataSet();
-  }
-
-  async getWeatherDataSet() {
-    this.isLoading = true;
-    this.weatherService.fetchWeatherData(this.id).subscribe((data)=>{
-      console.log('fetched weather data: ',data);
-      this.weatherData = data;
-      this.isLoading = false;
-    });
+    this.weatherData$ =this.weatherService.fetchWeatherData(this.id);
   }
 
   getTitle() {
     this.title = this.contentService.getMenuItemsById(this.id)?.title || '';
   }
 
-  showDetails(dataIndex: number) {
-    this.selectedWeather = this.weatherData[dataIndex]; 
+  showDetails(data: Weather) {
+    this.selectedWeather = data; 
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth'
+    });
   }
 
 }

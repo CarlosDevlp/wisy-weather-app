@@ -8,14 +8,15 @@ import { Weather } from '../../../core/models/weather.model';
   styleUrl: './weather-chart.component.css'
 })
 export class WeatherChartComponent {
+  @ViewChild('chart') chart: ElementRef={} as ElementRef;
   @Input() label = '';
   @Input() weatherData:Weather[] = [];
   @Input() color = '';
-  @Output() onTooltipClick = new EventEmitter<number>();
+  @Output() onTooltipClick = new EventEmitter<Weather>();
   labels:string[] = [];
   dataset:number[] = [];
   selectedIndex = -1;
-  @ViewChild('chart') chart: ElementRef={} as ElementRef;
+  
   constructor() { }
 
   ngAfterViewInit(): void {
@@ -82,8 +83,5 @@ export class WeatherChartComponent {
     });
   }
 
-  ngOnInit(): void {
-    
-  }
 
 }
